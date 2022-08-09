@@ -1,7 +1,7 @@
 import React, { useState, useContext, useRef, useEffect } from 'react';
 import { useRouter } from 'next/router';
 
-const EditBar = ({ setEditMode, currentId }) => {
+const EditBar = ({ setEditMode }) => {
   const router = useRouter();
 
   const inputRef = useRef<null | HTMLInputElement>(null);
@@ -19,13 +19,13 @@ const EditBar = ({ setEditMode, currentId }) => {
     password: '',
   });
 
-  const currentUserId = currentId;
+  //const currentUserId = currentId;
 
   useEffect(() => {
     if (inputRef.current) {
       inputRef.current.focus();
     }
-    let userId = currentUserId;
+    //let userId = currentUserId;
     //let selectedUser = users.find((user) => user.id === parseInt(userId));
     //setSelectedUser(selectedUser);
     // eslint-disable-next-line
