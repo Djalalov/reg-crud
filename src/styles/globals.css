@@ -1,3 +1,25 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  body {
+    @apply transition duration-300 ease-linear;
+  }
+}
+
+@layer utilities {
+  .inputContainer {
+    @apply h-10 rounded-lg border-[#E2E8F0] flex items-start justify-center box-border;
+  }
+  .inputStyle {
+    @apply px-3 py-2 border-[1px] border-[#E2E8F0] relative bg-white rounded-lg text-sm focus:outline-none focus:ring w-full focus:ring-primary/30;
+  }
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px white inset !important;
+}

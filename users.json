@@ -1,0 +1,21 @@
+[
+  {
+    "fname": "Frank",
+    "lname": "Murphy",
+    "email": "frank.murphy@rustvale.com",
+    "company": "Apple",
+    "role": "User",
+    "password": "faa123",
+    "id": "1"
+  },
+  {
+    "fname": "Bob",
+    "lname": "Marley",
+    "fullName": "Murphy Frank",
+    "company": "Google",
+    "email": "bob.marley@tad.com",
+    "role": "Admin",
+    "password": "foo123",
+    "id": "2"
+  }
+]
