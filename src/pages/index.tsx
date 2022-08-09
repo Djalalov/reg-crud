@@ -5,10 +5,30 @@ import Head from 'next/head';
 import Sidebar from '../../components/Sidebar';
 import EditBar from '../../components/EditBar';
 import SingleItem from '../../components/SingleItem';
-import users from '../../users.json';
+import data from '../../data.json';
 
 const Home: NextPage = () => {
   const [editMode, setEditMode] = useState<Boolean>(false);
+  const [users, setUsers] = useState([
+    {
+      fname: 'Frank',
+      lname: 'Murphy',
+      email: 'frank.murphy@rustvale.com',
+      company: 'Apple',
+      role: 'User',
+      password: 'faa123',
+      id: '1',
+    },
+    {
+      fname: 'Bob',
+      lname: 'Marley',
+      company: 'Google',
+      email: 'bob.marley@tad.com',
+      role: 'Admin',
+      password: 'foo123',
+      id: '2',
+    },
+  ]);
 
   return (
     <>
@@ -17,7 +37,11 @@ const Home: NextPage = () => {
       </Head>
       <div className="h-[100vh] w-[100vw] flex flex-row items-start p-0 relative bg-indigo-600">
         {/* Side panel */}
-        {editMode ? <EditBar setEditMode={setEditMode} /> : <Sidebar />}
+        {editMode ? (
+          <EditBar setEditMode={setEditMode} />
+        ) : (
+          <Sidebar users={users} setUsers={setUsers} />
+        )}
 
         {/* Content */}
         <div className="flex-1 w-full h-full bg-white p-10 gap-10">
@@ -54,6 +78,9 @@ const Home: NextPage = () => {
                       role={user.role}
                       id={user.id}
                       setEditMode={setEditMode}
+                      currentId={user.id}
+                      users={users}
+                      setUsers={setUsers}
                     />
                   </tr>
                 ))}

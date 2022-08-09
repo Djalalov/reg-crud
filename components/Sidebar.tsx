@@ -2,16 +2,20 @@ import React, { useState, useEffect, useRef, useId } from 'react';
 import Eye from '../public/Eye.svg';
 import EyeOff from '../public/EyeOff.svg';
 import Image from 'next/image';
+import data from '../data.json';
 
-const Sidebar = () => {
+const Sidebar = ({ users, setUsers }) => {
   const [showPassword, setShowPassword] = useState<Boolean>(true);
   const [userRole, setUserRole] = React.useState<Boolean>(true);
   const [adminRole, setAdminRole] = React.useState<Boolean>(false);
-  const [fname, setFname] = useState<String>('');
-  const [lname, setLname] = useState<String>('');
-  const [company, setCompany] = useState<String>('');
-  const [email, setEmail] = useState<String>('');
-  const [password, setPassword] = useState<String>('');
+
+  const [value, setValue] = useState('');
+
+  const [fname, setFname] = useState<string>('');
+  const [lname, setLname] = useState<string>('');
+  const [company, setCompany] = useState<string>('');
+  const [email, setEmail] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
 
   const inputRef = useRef<HTMLInputElement>(null);
   const formRef = useRef<HTMLFormElement>(null);
@@ -25,7 +29,8 @@ const Sidebar = () => {
   const ID = useId();
   const handleSubmit = (event: React.SyntheticEvent) => {
     event.preventDefault();
-    const newUser = {
+    const newUser = [...users];
+    newUser.push({
       fname,
       lname,
       company,
@@ -33,8 +38,8 @@ const Sidebar = () => {
       password,
       role: adminRole ? 'Admin' : 'User',
       id: ID,
-    };
-    //addUser(newUser);
+    });
+    setUsers(newUser);
     formRef?.current?.reset();
   };
 
@@ -46,8 +51,6 @@ const Sidebar = () => {
           <form
             ref={formRef}
             onSubmit={handleSubmit}
-            action="#"
-            method="POST"
             className="flex-none order-1 items-stretch flex-grow-0 bg-white"
           >
             {/***************** First Name & Last Name **********************/}
@@ -74,7 +77,7 @@ const Sidebar = () => {
                 </div>
                 <div className="flex flex-col gap-3">
                   <label
-                    htmlFor="last-name"
+                    htmlFor="lname"
                     className="text-xs leading-6 text-[#475569] font-medium w-[83px] h-6 "
                   >
                     Last name
@@ -95,10 +98,7 @@ const Sidebar = () => {
               {/*************** Company *****************/}
               <div className="flex flex-col group">
                 <div className="flex flex-col gap-3">
-                  <label
-                    htmlFor="last-name"
-                    className="text-xs leading-6 text-[#475569] font-medium"
-                  >
+                  <label htmlFor="company" className="text-xs leading-6 text-[#475569] font-medium">
                     Company
                   </label>
                   <div className="inputContainer w-full">
@@ -156,17 +156,14 @@ const Sidebar = () => {
               {/*************** Email *****************/}
               <div className=" flex flex-col group">
                 <div className="flex flex-col gap-3 ">
-                  <label
-                    htmlFor="email-address"
-                    className="text-xs leading-6 text-[#475569] font-medium"
-                  >
+                  <label htmlFor="email" className="text-xs leading-6 text-[#475569] font-medium">
                     Email
                   </label>
                   <div className="inputContainer w-full">
                     <input
                       type="text"
-                      name="email-address"
-                      id="email-address"
+                      name="email"
+                      id="email"
                       autoComplete="email"
                       className="inputStyle w-full"
                       required
