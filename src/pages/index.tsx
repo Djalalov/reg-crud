@@ -5,6 +5,7 @@ import Head from 'next/head';
 import Sidebar from '../../components/Sidebar';
 import EditBar from '../../components/EditBar';
 import SingleItem from '../../components/SingleItem';
+import uniqid from 'uniqid';
 import data from '../../data.json';
 
 const Home: NextPage = () => {
@@ -17,7 +18,7 @@ const Home: NextPage = () => {
       company: 'Apple',
       role: 'User',
       password: 'faa123',
-      id: '1',
+      id: uniqid(),
     },
     {
       fname: 'Bob',
@@ -26,7 +27,7 @@ const Home: NextPage = () => {
       email: 'bob.marley@tad.com',
       role: 'Admin',
       password: 'foo123',
-      id: '2',
+      id: uniqid(),
     },
   ]);
 

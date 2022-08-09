@@ -3,6 +3,7 @@ import Eye from '../public/Eye.svg';
 import EyeOff from '../public/EyeOff.svg';
 import Image from 'next/image';
 import data from '../data.json';
+import uniqid from 'uniqid';
 
 const Sidebar = ({ users, setUsers }) => {
   const [showPassword, setShowPassword] = useState<Boolean>(true);
@@ -26,7 +27,6 @@ const Sidebar = ({ users, setUsers }) => {
     }
   }, []);
 
-  const ID = useId();
   const handleSubmit = (event: React.SyntheticEvent) => {
     event.preventDefault();
     const newUser = [...users];
@@ -37,8 +37,10 @@ const Sidebar = ({ users, setUsers }) => {
       email,
       password,
       role: adminRole ? 'Admin' : 'User',
-      id: ID,
+      id: uniqid(),
     });
+    console.log(newUser);
+
     setUsers(newUser);
     formRef?.current?.reset();
   };
