@@ -1,9 +1,6 @@
-import React, { useState, useContext, useRef, useEffect } from 'react';
-import { useRouter } from 'next/router';
+import React, { useState, useRef, useEffect } from 'react';
 
 const EditBar = ({ setEditMode }) => {
-  const router = useRouter();
-
   const inputRef = useRef<null | HTMLInputElement>(null);
   const formRef = useRef<null | HTMLFormElement>(null);
   const [userRole, setUserRole] = React.useState<Boolean>(true);
@@ -34,9 +31,9 @@ const EditBar = ({ setEditMode }) => {
   const handleOnChange = (userKey: string, newValue: string) =>
     setSelectedUser({ ...selectedUser, [userKey]: newValue });
 
-  if (!selectedUser || !selectedUser.id) {
+  /*  if (!selectedUser || !selectedUser.id) {
     return <div className="flex">Invalid Employee ID</div>;
-  }
+  } */
 
   const handleSubmit = (e: React.SyntheticEvent) => {
     e.preventDefault();
@@ -71,7 +68,7 @@ const EditBar = ({ setEditMode }) => {
                     <input
                       ref={inputRef}
                       type="text"
-                      className="myInput"
+                      className="inputStyle"
                       required
                       value={selectedUser.fname}
                       onChange={(e) => handleOnChange('fname', e.target.value)}
@@ -88,7 +85,7 @@ const EditBar = ({ setEditMode }) => {
                   <div className="inputContainer w-[204px]">
                     <input
                       type="text"
-                      className="myInput"
+                      className="inputStyle"
                       required
                       value={selectedUser.lname}
                       onChange={(e) => handleOnChange('lname', e.target.value)}
@@ -109,7 +106,7 @@ const EditBar = ({ setEditMode }) => {
                   <div className="inputContainer w-full">
                     <input
                       type="text"
-                      className="myInput w-full"
+                      className="inputStyle w-full"
                       required
                       value={selectedUser.company}
                       onChange={(e) => handleOnChange('company', e.target.value)}
@@ -170,7 +167,7 @@ const EditBar = ({ setEditMode }) => {
                     <input
                       type="text"
                       autoComplete="email"
-                      className="myInput w-full"
+                      className="inputStyle w-full"
                       required
                       value={selectedUser.email}
                       onChange={(e) => handleOnChange('email', e.target.value)}
@@ -186,6 +183,15 @@ const EditBar = ({ setEditMode }) => {
                   className="h-10 inline-flex justify-center py-2 px-4 border w-full border-transparent shadow-sm text-sm font-bold rounded-lg text-white bg-primary hover:bg-primary/80"
                 >
                   Update
+                </button>
+              </div>
+              <div className=" bg-white text-right">
+                <button
+                  onClick={() => setEditMode(false)}
+                  type="submit"
+                  className="h-10 inline-flex justify-center py-2 px-4 border w-full border-transparent shadow-sm text-sm font-bold rounded-lg text-white bg-primary hover:bg-primary/80"
+                >
+                  Cancel
                 </button>
               </div>
             </div>

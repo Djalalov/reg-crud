@@ -2,15 +2,12 @@ import React, { useState, useEffect, useRef, useId } from 'react';
 import Eye from '../public/Eye.svg';
 import EyeOff from '../public/EyeOff.svg';
 import Image from 'next/image';
-import data from '../data.json';
 import uniqid from 'uniqid';
 
 const Sidebar = ({ users, setUsers }) => {
   const [showPassword, setShowPassword] = useState<Boolean>(true);
   const [userRole, setUserRole] = React.useState<Boolean>(true);
   const [adminRole, setAdminRole] = React.useState<Boolean>(false);
-
-  const [value, setValue] = useState('');
 
   const [fname, setFname] = useState<string>('');
   const [lname, setLname] = useState<string>('');
@@ -39,12 +36,9 @@ const Sidebar = ({ users, setUsers }) => {
       role: adminRole ? 'Admin' : 'User',
       id: uniqid(),
     });
-    console.log(newUser);
-
     setUsers(newUser);
     formRef?.current?.reset();
   };
-
   return (
     <>
       <div className="flex flex-grow-0 flex-col items-start max-w-lg h-full bg-white p-10 gap-10 border-r-[1px] border-[#E2E8F0]">
@@ -53,6 +47,7 @@ const Sidebar = ({ users, setUsers }) => {
           <form
             ref={formRef}
             onSubmit={handleSubmit}
+            autoComplete="on"
             className="flex-none order-1 items-stretch flex-grow-0 bg-white"
           >
             {/***************** First Name & Last Name **********************/}
@@ -70,7 +65,7 @@ const Sidebar = ({ users, setUsers }) => {
                       ref={inputRef}
                       type="text"
                       name="fname"
-                      id="first-name"
+                      id="fname"
                       className="inputStyle"
                       onChange={(e) => setFname(e.target.value)}
                       required
@@ -88,7 +83,7 @@ const Sidebar = ({ users, setUsers }) => {
                     <input
                       type="text"
                       name="lname"
-                      id="last-name"
+                      id="lname"
                       className="inputStyle"
                       required
                       onChange={(e) => setLname(e.target.value)}

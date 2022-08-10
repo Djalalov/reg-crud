@@ -77,7 +77,6 @@ const Home: NextPage = () => {
                       company={user.company}
                       email={user.email}
                       role={user.role}
-                      id={user.id}
                       setEditMode={setEditMode}
                       currentId={user.id}
                       users={users}

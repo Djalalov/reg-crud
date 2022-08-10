@@ -2,7 +2,6 @@ import React, { useContext } from 'react';
 import Image from 'next/image';
 import Edit from '../public/Edit.svg';
 import Trash from '../public/Trash.svg';
-import { useRouter } from 'next/router';
 
 const SingleItem = ({
   fname,
@@ -10,21 +9,22 @@ const SingleItem = ({
   company,
   email,
   role,
-  id,
   setEditMode,
   currentId,
   users,
   setUsers,
 }) => {
-  const router = useRouter();
-  const { urlId } = router.query;
-
   const handleDelete = (e) => {
     e.preventDefault();
-    const newUsers = [...users];
-    newUsers.filter((user) => user.id !== id);
+    let newUsers = [...users];
+    newUsers = newUsers.filter((user) => user.id !== currentId);
     setUsers(newUsers);
   };
+
+  const handleEdit = (e) => {
+    e.preventDefault();
+  };
+
   return (
     <>
       <th scope="row" className="font-medium whitespace-nowrap text-[#0F172A] py-2">
