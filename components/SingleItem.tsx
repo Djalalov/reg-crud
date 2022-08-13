@@ -27,7 +27,7 @@ const SingleItem = ({
   return (
     <>
       <th scope="row" className="font-medium whitespace-nowrap text-[#0F172A] py-2">
-        <div className="flex gap-3">
+        <div className="flex gap-3 ">
           <svg
             width="25"
             height="25"
@@ -36,7 +36,9 @@ const SingleItem = ({
           >
             Fallback text
           </svg>
-          {fname} {lname}
+          <div className="pt-0.5">
+            {fname} {lname}
+          </div>
         </div>
       </th>
       <td className="text-[#0F172A]">{company}</td>

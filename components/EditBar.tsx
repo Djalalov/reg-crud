@@ -21,7 +21,7 @@ const EditBar = ({ setEditMode, users, setUsers }) => {
     lname: '',
     email: '',
     company: '',
-    role: '',
+    role: role === 'Admin' ? 'Admin' : 'User',
     password: '',
   });
 
