@@ -70,9 +70,9 @@ const Sidebar = ({ users, setUsers }) => {
                       onChange={(e) => setFname(e.target.value)}
                       required
                     />
-                    <caption className="invisible peer-invalid:visible text-red-400 font-light text-xs">
+                    <div className="invisible peer-invalid:visible text-red-400 font-light text-xs">
                       Required
-                    </caption>
+                    </div>
                   </div>
                 </div>
                 <div className="flex flex-col gap-4">
@@ -91,9 +91,9 @@ const Sidebar = ({ users, setUsers }) => {
                       required
                       onChange={(e) => setLname(e.target.value)}
                     />
-                    <caption className="invisible peer-invalid:visible text-red-400 font-light text-xs">
+                    <div className="invisible peer-invalid:visible text-red-400 font-light text-xs">
                       Required
-                    </caption>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -116,9 +116,9 @@ const Sidebar = ({ users, setUsers }) => {
                       required
                       onChange={(e) => setCompany(e.target.value)}
                     />
-                    <caption className="invisible peer-invalid:visible text-red-400 font-light text-xs">
+                    <div className="invisible peer-invalid:visible text-red-400 font-light text-xs">
                       Required
-                    </caption>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -178,9 +178,9 @@ const Sidebar = ({ users, setUsers }) => {
                       required
                       onChange={(e) => setEmail(e.target.value)}
                     />
-                    <caption className="invisible peer-invalid:visible text-red-400 font-light text-xs">
+                    <div className="invisible peer-invalid:visible text-red-400 font-light text-xs">
                       Invalid email
-                    </caption>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -204,9 +204,9 @@ const Sidebar = ({ users, setUsers }) => {
                       onChange={(e) => setPassword(e.target.value)}
                       minLength="8"
                     />
-                    <caption className="invisible peer-invalid:visible text-red-400 font-light text-xs">
+                    <div className="invisible peer-invalid:visible text-red-400 font-light text-xs">
                       8+ characters
-                    </caption>
+                    </div>
                     <div className="absolute inset-y-0 right-0 items-center pr-2 -translate-y-1">
                       {showPassword ? (
                         <button
