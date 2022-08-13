@@ -24,18 +24,7 @@ const EditBar = ({ setEditMode, users, setUsers }) => {
     password: '',
   });
 
-  /*   const selectedUser = {
-    fname,
-    lname,
-    email,
-    company,
-    role: adminRole ? 'Admin' : 'User',
-    id: user.id,
-  };
- */
   const currentUserId = user.id;
-
-  console.log(currentUserId);
 
   useEffect(() => {
     if (inputRef.current) {
@@ -48,8 +37,6 @@ const EditBar = ({ setEditMode, users, setUsers }) => {
 
   const handleOnChange = (userKey: string, newValue: string) =>
     setSelectedUser({ ...selectedUser, [userKey]: newValue });
-
-  console.log(selectedUser);
 
   if (!selectedUser || !selectedUser.id) {
     return <div className="flex">Invalid User ID</div>;

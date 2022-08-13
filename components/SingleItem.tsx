@@ -17,12 +17,6 @@ const SingleItem = ({
 }) => {
   const userContext = useContext(UserContext);
 
-  /*  if (userContext) {
-  } */
-  //eslint-disable-next-line
-
-  console.log(userContext?.user?.id);
-
   const handleDelete = (e) => {
     e.preventDefault();
     let newUsers = [...users];
