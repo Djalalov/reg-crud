@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Edit from '../public/Edit.svg';
 import Trash from '../public/Trash.svg';
 import { UserContext } from '../components/UserCcontext';
+import Jdenticon from 'react-jdenticon';
 
 const SingleItem = ({
   fname,
@@ -28,14 +29,7 @@ const SingleItem = ({
     <>
       <th scope="row" className="font-medium whitespace-nowrap text-[#0F172A] py-2">
         <div className="flex gap-3 ">
-          <svg
-            width="25"
-            height="25"
-            data-jdenticon-value={fname}
-            className="text-white bg-primary/70 rounded-md"
-          >
-            Fallback text
-          </svg>
+          <Jdenticon size="24" value={fname} />
           <div className="pt-0.5">
             {fname} {lname}
           </div>
