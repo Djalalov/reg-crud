@@ -1,7 +1,8 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import Image from 'next/image';
 import Edit from '../public/Edit.svg';
 import Trash from '../public/Trash.svg';
+import { UserContext } from '../components/UserCcontext';
 
 const SingleItem = ({
   fname,
@@ -14,15 +15,19 @@ const SingleItem = ({
   users,
   setUsers,
 }) => {
+  const userContext = useContext(UserContext);
+
+  /*  if (userContext) {
+  } */
+  //eslint-disable-next-line
+
+  console.log(userContext?.user?.id);
+
   const handleDelete = (e) => {
     e.preventDefault();
     let newUsers = [...users];
     newUsers = newUsers.filter((user) => user.id !== currentId);
     setUsers(newUsers);
-  };
-
-  const handleEdit = (e) => {
-    e.preventDefault();
   };
 
   return (
@@ -56,6 +61,9 @@ const SingleItem = ({
             src={Edit}
             className="cursor-pointer"
             onClick={() => {
+              userContext.setUser({
+                id: currentId,
+              });
               setEditMode(true);
             }}
           />

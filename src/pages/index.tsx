@@ -6,7 +6,6 @@ import Sidebar from '../../components/Sidebar';
 import EditBar from '../../components/EditBar';
 import SingleItem from '../../components/SingleItem';
 import uniqid from 'uniqid';
-import data from '../../data.json';
 
 const Home: NextPage = () => {
   const [editMode, setEditMode] = useState<Boolean>(false);
@@ -36,10 +35,10 @@ const Home: NextPage = () => {
       <Head>
         <title>Dashboard</title>
       </Head>
-      <div className="h-[100vh] w-[100vw] flex flex-row items-start p-0 relative bg-indigo-600">
+      <div className="h-[100vh] w-[100vw] flex flex-wrap flex-row items-start p-0 relative bg-indigo-600">
         {/* Side panel */}
         {editMode ? (
-          <EditBar setEditMode={setEditMode} />
+          <EditBar setEditMode={setEditMode} users={users} setUsers={setUsers} />
         ) : (
           <Sidebar users={users} setUsers={setUsers} />
         )}

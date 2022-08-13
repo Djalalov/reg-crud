@@ -1,43 +1,66 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useContext } from 'react';
+import { UserContext } from '../components/UserCcontext';
 
-const EditBar = ({ setEditMode }) => {
+const EditBar = ({ setEditMode, users, setUsers }) => {
   const inputRef = useRef<null | HTMLInputElement>(null);
   const formRef = useRef<null | HTMLFormElement>(null);
-  const [userRole, setUserRole] = React.useState<Boolean>(true);
-  const [adminRole, setAdminRole] = React.useState<Boolean>(false);
+
+  const [userRole, setUserRole] = useState<Boolean>(true);
+  const [adminRole, setAdminRole] = useState<Boolean>(false);
+  const [fname, setFname] = useState<string>('');
+  const [lname, setLname] = useState<string>('');
+  const [company, setCompany] = useState<string>('');
+  const [email, setEmail] = useState<string>('');
+
+  const { user } = useContext(UserContext);
 
   const [selectedUser, setSelectedUser] = useState({
-    id: '',
+    id: null,
     fname: '',
     lname: '',
     email: '',
     company: '',
-    role: '',
+    role: adminRole ? 'Admin' : 'User',
     password: '',
   });
 
-  //const currentUserId = currentId;
+  /*   const selectedUser = {
+    fname,
+    lname,
+    email,
+    company,
+    role: adminRole ? 'Admin' : 'User',
+    id: user.id,
+  };
+ */
+  const currentUserId = user.id;
+
+  console.log(currentUserId);
 
   useEffect(() => {
     if (inputRef.current) {
       inputRef.current.focus();
     }
-    //let userId = currentUserId;
-    //let selectedUser = users.find((user) => user.id === parseInt(userId));
-    //setSelectedUser(selectedUser);
-    // eslint-disable-next-line
-  }, []);
+    const selectedId = currentUserId;
+    const selectedUser = users.find((user) => user.id === selectedId);
+    setSelectedUser(selectedUser);
+  }, [currentUserId, users]);
 
   const handleOnChange = (userKey: string, newValue: string) =>
     setSelectedUser({ ...selectedUser, [userKey]: newValue });
 
-  /*  if (!selectedUser || !selectedUser.id) {
-    return <div className="flex">Invalid Employee ID</div>;
-  } */
+  console.log(selectedUser);
+
+  if (!selectedUser || !selectedUser.id) {
+    return <div className="flex">Invalid User ID</div>;
+  }
 
   const handleSubmit = (e: React.SyntheticEvent) => {
     e.preventDefault();
-    //editUser(selectedUser);
+    const updatedUser = selectedUser;
+    let foundIndex = users.findIndex((x) => x.id === updatedUser.id);
+    users[foundIndex] = updatedUser;
+    setUsers(users);
     formRef?.current?.reset();
     setEditMode(false);
   };
