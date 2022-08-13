@@ -16,5 +16,23 @@
     "role": "Admin",
     "password": "foo123",
     "id": "2"
+  },
+  {
+    "fname": "John",
+    "lname": "Smith",
+    "company": "Microsoft",
+    "email": "john.smith@mail.com",
+    "role": "User",
+    "password": "foo123",
+    "id": "3"
+  },
+  {
+    "fname": "Sara",
+    "lname": "Weller",
+    "company": "Cisco",
+    "email": "sara.Weller@tad.com",
+    "role": "User",
+    "password": "foo123",
+    "id": "4"
   }
 ]

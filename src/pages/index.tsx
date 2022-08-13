@@ -6,29 +6,11 @@ import Sidebar from '../../components/Sidebar';
 import EditBar from '../../components/EditBar';
 import SingleItem from '../../components/SingleItem';
 import uniqid from 'uniqid';
+import data from '../../data.json';
 
 const Home: NextPage = () => {
   const [editMode, setEditMode] = useState<Boolean>(false);
-  const [users, setUsers] = useState([
-    {
-      fname: 'Frank',
-      lname: 'Murphy',
-      email: 'frank.murphy@rustvale.com',
-      company: 'Apple',
-      role: 'User',
-      password: 'faa123',
-      id: uniqid(),
-    },
-    {
-      fname: 'Bob',
-      lname: 'Marley',
-      company: 'Google',
-      email: 'bob.marley@tad.com',
-      role: 'Admin',
-      password: 'foo123',
-      id: uniqid(),
-    },
-  ]);
+  const [users, setUsers] = useState(data);
 
   return (
     <>
