@@ -7,6 +7,7 @@ const EditBar = ({ setEditMode, users, setUsers }) => {
 
   const [userRole, setUserRole] = useState<Boolean>(true);
   const [adminRole, setAdminRole] = useState<Boolean>(false);
+  const [role, setRole] = useState('');
   const [fname, setFname] = useState<string>('');
   const [lname, setLname] = useState<string>('');
   const [company, setCompany] = useState<string>('');
@@ -137,6 +138,7 @@ const EditBar = ({ setEditMode, users, setUsers }) => {
                         e.preventDefault();
                         setUserRole(true);
                         setAdminRole(false);
+                        setRole('User');
                       }}
                       className={`w-[210px] ${
                         userRole && 'bg-white'
@@ -149,6 +151,7 @@ const EditBar = ({ setEditMode, users, setUsers }) => {
                         e.preventDefault();
                         setAdminRole(true);
                         setUserRole(false);
+                        setRole('Admin');
                       }}
                       className={`${
                         adminRole && 'bg-white'
