@@ -58,7 +58,7 @@ const Home: NextPage = () => {
                   </th>
                 </tr>
               </thead>
-              <tbody className="overscroll-auto overflow-y-auto w-full h-96 ">
+              <tbody className="overscroll-auto overflow-y-auto w-full  ">
                 {users.map((user) => (
                   <tr key={user.id} className="hover:bg-[#94A3B8]/10">
                     <SingleItem
