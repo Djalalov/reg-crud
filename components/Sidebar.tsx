@@ -42,13 +42,13 @@ const Sidebar = ({ users, setUsers }) => {
   return (
     <>
       <div className="flex flex-grow-0 flex-col items-start max-w-lg h-full bg-white p-10 gap-10 border-r-[1px] border-[#E2E8F0]">
-        <h1 className="font-bold text-[#0F172A] text-sm leading-6 w-[142px] h-6">Add Customer</h1>
+        <h1 className="font-bold text-[#0F172A] text-xl leading-6 w-[142px] h-6">Add Customer</h1>
         <div className="flex flex-col items-start p-0 gap-6 w-[432px] h-[560px]">
           <form
             ref={formRef}
             onSubmit={handleSubmit}
             autoComplete="on"
-            className="flex-none order-1 items-stretch flex-grow-0 bg-white"
+            className="flex-none order-1 items-stretch flex-grow-0 bg-white "
           >
             {/***************** First Name & Last Name **********************/}
             <div className="flex flex-col gap-6">
@@ -56,21 +56,21 @@ const Sidebar = ({ users, setUsers }) => {
                 <div className="flex flex-col gap-4 ">
                   <label
                     htmlFor="fname"
-                    className="text-xs leading-6 text-[#475569] font-medium w-[83px] h-6"
+                    className="text-base leading-6 text-[#475569] font-medium w-[83px] h-6"
                   >
                     First name
                   </label>
-                  <div className="inputContainer w-[204px] flex flex-col gap-2">
+                  <div className="inputContainer w-[204px] flex flex-col ">
                     <input
                       ref={inputRef}
                       type="text"
                       name="fname"
                       id="fname"
-                      className="inputStyle peer"
+                      className="inputStyle peer mt-2"
                       onChange={(e) => setFname(e.target.value)}
                       required
                     />
-                    <div className="invisible peer-invalid:visible text-red-400 font-light text-xs">
+                    <div className="invisible peer-invalid:visible text-red-400 font-light text-sm pt-2">
                       Required
                     </div>
                   </div>
@@ -78,20 +78,20 @@ const Sidebar = ({ users, setUsers }) => {
                 <div className="flex flex-col gap-4">
                   <label
                     htmlFor="lname"
-                    className="text-xs leading-6 text-[#475569] font-medium w-[83px] h-6 "
+                    className="text-base  leading-6 text-[#475569] font-medium w-[83px] h-6 "
                   >
                     Last name
                   </label>
-                  <div className="inputContainer w-[204px]  flex flex-col gap-2">
+                  <div className="inputContainer w-[204px]  flex flex-col">
                     <input
                       type="text"
                       name="lname"
                       id="lname"
-                      className="inputStyle peer"
+                      className="inputStyle peer mt-2"
                       required
                       onChange={(e) => setLname(e.target.value)}
                     />
-                    <div className="invisible peer-invalid:visible text-red-400 font-light text-xs">
+                    <div className="invisible peer-invalid:visible text-red-400 font-light text-sm pt-2">
                       Required
                     </div>
                   </div>
@@ -103,20 +103,20 @@ const Sidebar = ({ users, setUsers }) => {
                 <div className="flex flex-col gap-4">
                   <label
                     htmlFor="company"
-                    className="text-xs pt-2 leading-6 text-[#475569] font-medium"
+                    className="text-base  pt-2 leading-6 text-[#475569] font-medium"
                   >
                     Company
                   </label>
-                  <div className="inputContainer w-full flex flex-col gap-2">
+                  <div className="inputContainer w-full flex flex-col ">
                     <input
                       type="text"
                       name="company"
                       id="company"
-                      className="inputStyle w-full peer"
+                      className="inputStyle w-full peer mt-2"
                       required
                       onChange={(e) => setCompany(e.target.value)}
                     />
-                    <div className="invisible peer-invalid:visible text-red-400 font-light text-xs">
+                    <div className="invisible peer-invalid:visible text-red-400 font-light text-sm pt-2">
                       Required
                     </div>
                   </div>
@@ -128,7 +128,7 @@ const Sidebar = ({ users, setUsers }) => {
                 <div className="flex flex-col gap-2">
                   <label
                     htmlFor="last-name"
-                    className="text-xs leading-6 text-[#475569] font-medium"
+                    className="text-base  leading-6 text-[#475569] font-medium"
                   >
                     Status
                   </label>
@@ -165,20 +165,23 @@ const Sidebar = ({ users, setUsers }) => {
               {/*************** Email *****************/}
               <div className=" flex flex-col group">
                 <div className="flex flex-col gap-4">
-                  <label htmlFor="email" className="text-xs leading-6 text-[#475569] font-medium">
+                  <label
+                    htmlFor="email"
+                    className="text-base  leading-6 text-[#475569] font-medium"
+                  >
                     Email
                   </label>
-                  <div className="inputContainer w-full flex flex-col gap-2">
+                  <div className="inputContainer w-full flex flex-col">
                     <input
                       type="email"
                       name="email"
                       id="email"
                       autoComplete="email"
-                      className="inputStyle w-full peer"
+                      className="inputStyle w-full peer mt-2"
                       required
                       onChange={(e) => setEmail(e.target.value)}
                     />
-                    <div className="invisible peer-invalid:visible text-red-400 font-light text-xs">
+                    <div className="invisible peer-invalid:visible text-red-400 font-light text-sm pt-2">
                       Invalid email
                     </div>
                   </div>
@@ -191,20 +194,20 @@ const Sidebar = ({ users, setUsers }) => {
                 <div className="flex flex-col gap-4 pt-2">
                   <label
                     htmlFor="password"
-                    className="text-xs leading-6 text-[#475569] font-medium"
+                    className="text-base  leading-6 text-[#475569] font-medium"
                   >
                     Password
                   </label>
-                  <div className="w-full inputContainer flex items-start justify-center gap-2 relative flex-col">
+                  <div className="w-full inputContainer flex items-start justify-center relative flex-col">
                     <input
                       type={showPassword ? 'text' : 'password'}
                       id="password"
-                      className="w-[372px] inputStyle peer"
+                      className="w-[372px] inputStyle peer mt-2"
                       required
                       onChange={(e) => setPassword(e.target.value)}
                       minLength="8"
                     />
-                    <div className="invisible peer-invalid:visible text-red-400 font-light text-xs">
+                    <div className="invisible peer-invalid:visible text-red-400 font-light text-sm pt-2">
                       8+ characters
                     </div>
                     <div className="absolute inset-y-0 right-0 items-center pr-2 -translate-y-1">

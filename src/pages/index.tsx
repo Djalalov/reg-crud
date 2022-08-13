@@ -36,10 +36,10 @@ const Home: NextPage = () => {
 
         {/* Content */}
         <div className="flex-1 w-full h-full bg-white p-10 gap-10">
-          <h1 className="font-bold text-[#0F172A] w-[109px] leading-6 text-sm">Customers</h1>
-          <div className="flex flex-col items-start p-0 gap-6">
-            <table className="w-full text-sm text-left text-gray-500 p-0 mt-10">
-              <thead className="text-xs text-gray-900">
+          <h1 className="font-bold text-[#0F172A] w-[109px] leading-6 text-xl">Customers</h1>
+          <div className="flex flex-col items-center p-0 overflow-y-auto relative w-full ">
+            <table className="table-auto w-full text-sm text-left text-gray-500 p-0 mt-10">
+              <thead className="text-base text-gray-900">
                 <tr>
                   <th scope="col" className="text-[#94A3B8] pb-2">
                     Name
@@ -58,9 +58,9 @@ const Home: NextPage = () => {
                   </th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody className="overscroll-auto overflow-y-auto w-full h-96 ">
                 {users.map((user) => (
-                  <tr key={user.id}>
+                  <tr key={user.id} className="hover:bg-[#94A3B8]/10">
                     <SingleItem
                       fname={user.fname}
                       lname={user.lname}

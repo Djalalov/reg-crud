@@ -52,13 +52,11 @@ const EditBar = ({ setEditMode, users, setUsers }) => {
   return (
     <>
       <div className="flex flex-grow-0 flex-col items-start max-w-lg h-full bg-white p-10 gap-10 border-r-[1px] border-[#E2E8F0]">
-        <h1 className="font-bold text-[#0F172A] text-sm leading-6 w-[142px] h-6">Add Customer</h1>
+        <h1 className="font-bold text-[#0F172A] text-xl leading-6 w-[142px] h-6">Add Customer</h1>
         <div className="flex flex-col items-start p-0 gap-6 w-[432px] h-[560px]">
           <form
             ref={formRef}
             onSubmit={handleSubmit}
-            action="#"
-            method="POST"
             className="flex-none order-1 items-stretch flex-grow-0 bg-white"
           >
             {/***************** First Name & Last Name **********************/}
@@ -67,7 +65,7 @@ const EditBar = ({ setEditMode, users, setUsers }) => {
                 <div className="flex flex-col gap-3 ">
                   <label
                     htmlFor="fname"
-                    className="text-xs leading-6 text-[#475569] font-medium w-[83px] h-6"
+                    className="text-base leading-6 text-[#475569] font-medium w-[83px] h-6"
                   >
                     First name
                   </label>
@@ -85,7 +83,7 @@ const EditBar = ({ setEditMode, users, setUsers }) => {
                 <div className="flex flex-col gap-3">
                   <label
                     htmlFor="last-name"
-                    className="text-xs leading-6 text-[#475569] font-medium w-[83px] h-6 "
+                    className="text-base  leading-6 text-[#475569] font-medium w-[83px] h-6 "
                   >
                     Last name
                   </label>
@@ -106,7 +104,7 @@ const EditBar = ({ setEditMode, users, setUsers }) => {
                 <div className="flex flex-col gap-3">
                   <label
                     htmlFor="last-name"
-                    className="text-xs leading-6 text-[#475569] font-medium"
+                    className="text-base  leading-6 text-[#475569] font-medium"
                   >
                     Company
                   </label>
@@ -127,7 +125,7 @@ const EditBar = ({ setEditMode, users, setUsers }) => {
                 <div className="flex flex-col gap-3">
                   <label
                     htmlFor="last-name"
-                    className="text-xs leading-6 text-[#475569] font-medium"
+                    className="text-base  leading-6 text-[#475569] font-medium"
                   >
                     Status
                   </label>
@@ -168,19 +166,23 @@ const EditBar = ({ setEditMode, users, setUsers }) => {
                 <div className="flex flex-col gap-3 ">
                   <label
                     htmlFor="email-address"
-                    className="text-xs leading-6 text-[#475569] font-medium"
+                    className="text-base  leading-6 text-[#475569] font-medium"
                   >
                     Email
                   </label>
                   <div className="inputContainer w-full">
                     <input
-                      type="text"
+                      type="email"
+                      name="email"
                       autoComplete="email"
-                      className="inputStyle w-full"
+                      className="inputStyle w-full peer"
                       required
                       value={selectedUser.email}
                       onChange={(e) => handleOnChange('email', e.target.value)}
                     />
+                  </div>
+                  <div className="invisible peer-invalid:visible text-red-400 font-light text-sm pt-2">
+                    Invalid email
                   </div>
                 </div>
               </div>

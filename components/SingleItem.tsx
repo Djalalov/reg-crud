@@ -27,14 +27,14 @@ const SingleItem = ({
 
   return (
     <>
-      <th scope="row" className="font-medium whitespace-nowrap text-[#0F172A] py-2">
+      <td scope="row" className="font-medium whitespace-nowrap text-[#0F172A] py-2">
         <div className="flex gap-3 ">
           <Jdenticon size="24" value={fname} />
           <div className="pt-0.5">
             {fname} {lname}
           </div>
         </div>
-      </th>
+      </td>
       <td className="text-[#0F172A]">{company}</td>
       <td className="text-[#0F172A]">{email}</td>
       <td className="text-[#0F172A]">
