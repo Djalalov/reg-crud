@@ -38,10 +38,6 @@ const EditBar = ({ setEditMode, users, setUsers }) => {
   const handleOnChange = (userKey: string, newValue: string) =>
     setSelectedUser({ ...selectedUser, [userKey]: newValue });
 
-  if (!selectedUser || !selectedUser.id) {
-    return <div className="flex">Invalid User ID</div>;
-  }
-
   const handleSubmit = (e: React.SyntheticEvent) => {
     e.preventDefault();
     const updatedUser = selectedUser;

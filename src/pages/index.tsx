@@ -38,9 +38,18 @@ const Home: NextPage = () => {
       <div className="h-[100vh] w-[100vw] flex flex-wrap flex-row items-start p-0 relative bg-indigo-600">
         {/* Side panel */}
         {editMode ? (
-          <EditBar setEditMode={setEditMode} users={users} setUsers={setUsers} />
+          <EditBar
+            setEditMode={setEditMode}
+            users={users}
+            setUsers={setUsers}
+            className="transition duration-300 ease-in-out"
+          />
         ) : (
-          <Sidebar users={users} setUsers={setUsers} />
+          <Sidebar
+            users={users}
+            setUsers={setUsers}
+            className="transition duration-300 ease-in-out"
+          />
         )}
 
         {/* Content */}
